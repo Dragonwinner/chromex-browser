@@ -5,6 +5,19 @@
 </p>
 
 <p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=codewithgod.chromex-browser">
+    <img src="https://img.shields.io/visual-studio-marketplace/v/codewithgod.chromex-browser?label=VS%20Code%20Marketplace&color=blue&logo=visual-studio-code" alt="Marketplace Version" />
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=codewithgod.chromex-browser">
+    <img src="https://img.shields.io/visual-studio-marketplace/d/codewithgod.chromex-browser?color=green&label=Downloads" alt="Downloads" />
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=codewithgod.chromex-browser">
+    <img src="https://img.shields.io/visual-studio-marketplace/r/codewithgod.chromex-browser?color=orange&label=Rating" alt="Rating" />
+  </a>
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" />
+</p>
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/Dragonwinner/chromex-browser/main/media/google.png" alt="ChromeX Browser" width="800" />
 </p>
 
