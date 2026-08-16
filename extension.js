@@ -37,8 +37,8 @@ function activate(context) {
     // Status Bar Item (Visible at bottom-right of VS Code)
     const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
     statusBarItem.command = 'fullBrowser.open';
-    statusBarItem.text = '$(globe) Browser';
-    statusBarItem.tooltip = 'Click to open Full Browser';
+    statusBarItem.text = '$(globe) ChromeX';
+    statusBarItem.tooltip = 'Click to open ChromeX Browser';
     statusBarItem.show();
     context.subscriptions.push(statusBarItem);
 
@@ -824,7 +824,7 @@ async function openBrowser(context, initialUrl) {
     // --- Create Webview Panel ---
     panel = vscode.window.createWebviewPanel(
         'fullBrowser',
-        '🌐 Browser',
+        '🌐 ChromeX Browser',
         vscode.ViewColumn.One,
         {
             enableScripts: true,

@@ -1,12 +1,13 @@
 {
-  "name": "vscode-full-browser",
-  "displayName": "Full Browser - Chromium Inside VS Code",
-  "description": "A full Chromium browser inside VS Code. Browse the entire internet without iframe restrictions using real Chrome rendering via CDP screencast.",
+  "name": "chromex-browser",
+  "displayName": "ChromeX Browser",
+  "description": "Explore the entire internet inside VS Code, Cursor & Antigravity IDE. A real, GPU-accelerated Chromium browser with DRM video playback, native audio, and zero iframe restrictions.",
   "version": "1.0.0",
-  "publisher": "studywithgod",
+  "publisher": "codewithgod",
+  "icon": "media/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/studywithgod/vscode-full-browser.git"
+    "url": "https://github.com/codewithgod/chromex-browser.git"
   },
   "engines": {
     "vscode": "^1.80.0"
@@ -15,7 +16,6 @@
     "Other"
   ],
   "activationEvents": [
-    "*",
     "onCommand:fullBrowser.open",
     "onCommand:fullBrowser.openUrl"
   ],
