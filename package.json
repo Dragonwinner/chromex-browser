@@ -114,6 +114,6 @@
   "scripts": {
     "build": "esbuild extension.js --bundle --platform=node --target=node18 --outfile=dist/extension.js --external:vscode --format=cjs",
     "watch": "esbuild extension.js --bundle --platform=node --target=node18 --outfile=dist/extension.js --external:vscode --format=cjs --watch",
-    "package": "npm run build && vsce package --no-dependencies"
+    "package": "npx @vscode/vsce package --no-dependencies"
   }
 }
