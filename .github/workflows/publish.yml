@@ -17,21 +17,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci || npm install
+        run: npm install --include=optional
 
       - name: Build & Bundle Extension
-        run: npm run build
+        run: npx --yes esbuild extension.js --bundle --platform=node --target=node18 --outfile=dist/extension.js --external:vscode --format=cjs
 
       - name: Publish to VS Code Marketplace
-        run: npx -y @vscode/vsce publish --no-dependencies --pat ${{ secrets.VSCE_PAT }}
+        run: npx --yes @vscode/vsce publish --no-dependencies --pat "${{ secrets.VSCE_PAT }}"
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
 
       - name: Package VSIX
-        run: npx -y @vscode/vsce package --no-dependencies
+        run: npx --yes @vscode/vsce package --no-dependencies
 
       - name: Upload VSIX Asset to GitHub Release
         uses: softprops/action-gh-release@v2
