@@ -13,6 +13,7 @@
     "url": "https://github.com/Dragonwinner/chromex-browser/issues"
   },
   "homepage": "https://github.com/Dragonwinner/chromex-browser#readme",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.80.0"
   },

@@ -31,4 +31,4 @@ jobs:
         run: npx --yes esbuild extension.js --bundle --platform=node --target=node18 --outfile=dist/extension.js --external:vscode --format=cjs
 
       - name: Validate VSIX Package Creation
-        run: npx --yes @vscode/vsce package --no-dependencies
+        run: npx --yes @vscode/vsce package --no-dependencies --allow-missing-repository
