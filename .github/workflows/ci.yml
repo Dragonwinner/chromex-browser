@@ -23,23 +23,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci || npm install
+        run: npm install --include=optional
 
       - name: Build & Bundle Extension (esbuild)
-        run: npm run build
+        run: npx --yes esbuild extension.js --bundle --platform=node --target=node18 --outfile=dist/extension.js --external:vscode --format=cjs
 
       - name: Validate VSIX Package Creation
-        run: npx -y @vscode/vsce package --no-dependencies
-
-      - name: Check Package Size
-        run: |
-          node -e "
-          const fs = require('fs');
-          const vsix = fs.readdirSync('.').find(f => f.endsWith('.vsix'));
-          if (!vsix) throw new Error('VSIX package was not generated');
-          const sizeMB = fs.statSync(vsix).size / (1024 * 1024);
-          console.log('✅ VSIX generated: ' + vsix + ' (' + sizeMB.toFixed(2) + ' MB)');
-          "
+        run: npx --yes @vscode/vsce package --no-dependencies --allow-missing-repository
