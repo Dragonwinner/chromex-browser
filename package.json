@@ -110,7 +110,7 @@
     }
   },
   "dependencies": {
-    "puppeteer-core": "^22.0.0"
+    "puppeteer-core": "^25.6.0"
   },
   "devDependencies": {
     "@vscode/vsce": "^2.22.0",
