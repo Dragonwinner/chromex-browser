@@ -161,3 +161,31 @@ Configure ChromeX Browser via **Settings (`Ctrl+,`) → Extensions → ChromeX B
 - **100% Local**: Runs exclusively on your computer using your local browser installation.
 - **No Cloud Proxies**: No data is sent to external servers or third parties.
 - **Secure Isolation**: Your session cookies and credentials remain safe on your local drive.
+
+---
+
+## 🤝 Contributing & Developer Setup
+
+We love contributions! Whether it's fixing bugs, improving performance, or adding new features, here's how to get started:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Dragonwinner/chromex-browser.git
+cd chromex-browser
+
+# 2. Install dependencies
+npm install
+
+# 3. Build & bundle
+npm run build
+
+# 4. Press F5 in VS Code to launch Extension Development Host
+```
+
+📖 **Read our full [Contributing Guide (CONTRIBUTING.md)](CONTRIBUTING.md)** for detailed architecture docs, debugging workflows, and pull request guidelines.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
