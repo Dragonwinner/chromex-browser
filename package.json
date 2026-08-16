@@ -2,7 +2,7 @@
   "name": "chromex-browser",
   "displayName": "ChromeX Browser",
   "description": "Explore the entire internet inside VS Code, Cursor & Antigravity IDE. A real, GPU-accelerated Chromium browser with DRM video playback, native audio, and zero iframe restrictions.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "publisher": "codewithgod",
   "icon": "media/icon.png",
   "repository": {
@@ -89,7 +89,11 @@
         "fullBrowser.profileMode": {
           "type": "string",
           "default": "persistent",
-          "enum": ["persistent", "chrome", "temporary"],
+          "enum": [
+            "persistent",
+            "chrome",
+            "temporary"
+          ],
           "enumDescriptions": [
             "Use extension's own persistent profile (logins saved across sessions)",
             "Use your real Chrome profile (Chrome must be closed first)",
