@@ -1,11 +1,11 @@
 # ChromeX Browser
 
 <p align="center">
-  <img src="media/icon.png" alt="ChromeX Browser Logo" width="128" />
+  <img src="https://raw.githubusercontent.com/Dragonwinner/chromex-browser/main/media/icon.png" alt="ChromeX Browser Logo" width="128" />
 </p>
 
 <p align="center">
-  <img src="media/google.png" alt="ChromeX Browser" width="800" />
+  <img src="https://raw.githubusercontent.com/Dragonwinner/chromex-browser/main/media/google.png" alt="ChromeX Browser" width="800" />
 </p>
 
 <p align="center">
@@ -51,12 +51,12 @@ Before using this extension, make sure you have at least one modern Chromium bro
 ---
 
 ### Method 2: Install from `.vsix` Package
-1. Download the `chromex-browser-1.0.0.vsix` file.
+1. Download the `chromex-browser-1.0.1.vsix` file.
 2. In VS Code, open the Command Palette (`Ctrl + Shift + P` or `Cmd + Shift + P`).
 3. Type **`Extensions: Install from VSIX...`** and select the `.vsix` file.
 4. *Or run via terminal:*
    ```bash
-   code --install-extension chromex-browser-1.0.0.vsix
+   code --install-extension chromex-browser-1.0.1.vsix
    ```
 
 ---
@@ -74,7 +74,7 @@ If your Chrome or Brave is installed in a custom location, specify the path in y
 ### 1. 🎓 Learn & Code Simultaneously (DSA, Courses & Interactive Portals)
 Watch coding video courses and follow problem-solving guides directly beside your code. Built-in Widevine CDM and GPU acceleration allow you to play protected lectures on platforms like TakeUForward, Coursera, Udemy, and LeetCode.
 
-![Learn & Code Inside VS Code](media/takeyouforward.png)
+![Learn & Code Inside VS Code](https://raw.githubusercontent.com/Dragonwinner/chromex-browser/main/media/takeyouforward.png)
 
 *Solve coding challenges, read editorials, and watch lecture videos without ever leaving your editor.*
 
@@ -83,7 +83,7 @@ Watch coding video courses and follow problem-solving guides directly beside you
 ### 2. 📺 Stream YouTube Tutorials, Tech Talks & Music
 Stream developer tutorials, conference talks, or background music with native system audio, timeline scrubbing, seeking, and responsive fullscreen mode.
 
-![YouTube Playback Inside VS Code](media/yt.png)
+![YouTube Playback Inside VS Code](https://raw.githubusercontent.com/Dragonwinner/chromex-browser/main/media/yt.png)
 
 *Watch video walkthroughs with synced audio, keyboard playback controls, and fullscreen view.*
 
@@ -92,7 +92,7 @@ Stream developer tutorials, conference talks, or background music with native sy
 ### 3. 🌐 Google Search, Official Docs & Web Apps
 Search Google, browse MDN, read API documentation, look up Stack Overflow answers, or access web dashboards with instant keyboard typing and mouse interaction.
 
-![Web Browsing & Search](media/google.png)
+![Web Browsing & Search](https://raw.githubusercontent.com/Dragonwinner/chromex-browser/main/media/google.png)
 
 *Search the internet and access web tools with full typing precision and automatic theme matching.*
 
@@ -120,7 +120,7 @@ Search Google, browse MDN, read API documentation, look up Stack Overflow answer
 ## 🚀 How to Use
 
 1. Press **`Ctrl + Shift + P`** (or **`Cmd + Shift + P`** on macOS) to open the Command Palette.
-2. Type **`Open ChromeX Browser`** and hit **Enter** (or click the 🌐 icon in the Status Bar / Editor Title).
+2. Type **`Open Full Browser`** and hit **Enter** (or click the 🌐 icon in the Status Bar / Editor Title).
 3. Type any URL or search term in the address bar and enjoy browsing!
 
 ---
@@ -161,7 +161,3 @@ Configure ChromeX Browser via **Settings (`Ctrl+,`) → Extensions → ChromeX B
 - **100% Local**: Runs exclusively on your computer using your local browser installation.
 - **No Cloud Proxies**: No data is sent to external servers or third parties.
 - **Secure Isolation**: Your session cookies and credentials remain safe on your local drive.
-
----
-
-*For developer build instructions, packaging commands, and architecture details, see [`DEVELOPER.md`](DEVELOPER.md).*

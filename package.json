@@ -2,7 +2,7 @@
   "name": "chromex-browser",
   "displayName": "ChromeX Browser",
   "description": "Explore the entire internet inside VS Code, Cursor & Antigravity IDE. A real, GPU-accelerated Chromium browser with DRM video playback, native audio, and zero iframe restrictions.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "codewithgod",
   "icon": "media/icon.png",
   "repository": {
