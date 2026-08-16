@@ -1,0 +1,668 @@
+/* =========================================================================
+   Full Browser — Webview Stylesheet
+   Premium dark theme using VS Code CSS variables for theme integration
+   ========================================================================= */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                 Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    color: var(--vscode-foreground, #cdd6f4);
+    background: var(--vscode-editor-background, #1e1e2e);
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+
+/* =========================================================================
+   TOOLBAR
+   ========================================================================= */
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    background: var(--vscode-titleBar-activeBackground, #181825);
+    border-bottom: 1px solid var(--vscode-panel-border, rgba(255,255,255,0.06));
+    flex-shrink: 0;
+    z-index: 10;
+    overflow: visible;
+    position: relative;
+}
+
+/* --- Navigation Buttons --- */
+.nav-group, .action-group {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--vscode-foreground, #cdd6f4);
+    cursor: pointer;
+    transition: background 0.12s ease, opacity 0.12s ease;
+    opacity: 0.8;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.nav-btn:focus, .nav-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: var(--vscode-toolbar-hoverBackground, rgba(255,255,255,0.1));
+    opacity: 1;
+}
+
+.nav-btn:active:not(:disabled) {
+    background: var(--vscode-toolbar-activeBackground, rgba(255,255,255,0.15));
+    transform: scale(0.93);
+}
+
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.nav-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.nav-btn-login {
+    width: auto;
+    padding: 0 10px;
+    gap: 6px;
+    background: var(--vscode-button-secondaryBackground, rgba(137, 180, 250, 0.15));
+    border: 1px solid var(--vscode-button-border, rgba(137, 180, 250, 0.3));
+    color: var(--vscode-button-secondaryForeground, #89b4fa);
+    font-size: 11.5px;
+    font-weight: 500;
+    opacity: 0.95;
+    border-radius: 6px;
+}
+
+.nav-btn-login:hover {
+    background: var(--vscode-button-background, #89b4fa);
+    color: var(--vscode-button-foreground, #11111b);
+    opacity: 1;
+}
+
+.nav-btn-login .btn-text {
+    white-space: nowrap;
+}
+
+/* --- Login Alert Banner --- */
+.login-banner {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(30, 30, 46, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--vscode-focusBorder, #89b4fa);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    font-size: 12px;
+    color: var(--vscode-foreground, #cdd6f4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 90%;
+}
+
+.login-banner.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-20px);
+    pointer-events: none;
+}
+
+.login-banner .banner-icon {
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.login-banner .banner-text {
+    flex: 1;
+}
+
+.login-banner .banner-btn {
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: none;
+    background: var(--vscode-button-background, #89b4fa);
+    color: var(--vscode-button-foreground, #11111b);
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: filter 0.15s ease, transform 0.1s ease;
+}
+
+.login-banner .banner-btn:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+.login-banner .banner-close {
+    background: transparent;
+    border: none;
+    color: var(--vscode-foreground, #cdd6f4);
+    opacity: 0.6;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.login-banner .banner-close:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- URL Bar --- */
+.url-bar-wrapper {
+    flex: 1;
+    position: relative;
+    min-width: 0;
+}
+
+.url-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 26px;
+    padding: 0 10px;
+    border-radius: 8px;
+    background: var(--vscode-input-background, rgba(69, 71, 90, 0.6));
+    border: 1px solid var(--vscode-input-border, rgba(255,255,255,0.08));
+    transition: all 0.2s ease;
+}
+
+.url-bar:focus-within {
+    border-color: var(--vscode-focusBorder, #89b4fa);
+    box-shadow: 0 0 0 1px var(--vscode-focusBorder, #89b4fa);
+    background: var(--vscode-input-background, rgba(69, 71, 90, 0.8));
+}
+
+.secure-icon {
+    font-size: 12px;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+}
+
+.secure-icon.insecure {
+    filter: grayscale(1) opacity(0.5);
+}
+
+#url-input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--vscode-input-foreground, #cdd6f4);
+    font-family: 'Cascadia Code', 'Fira Code', 'SF Mono', Consolas, monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.2px;
+    min-width: 0;
+}
+
+#url-input::placeholder {
+    color: var(--vscode-input-placeholderForeground, rgba(205, 214, 244, 0.4));
+}
+
+#url-input::selection {
+    background: var(--vscode-editor-selectionBackground, rgba(137, 180, 250, 0.3));
+}
+
+/* --- Loading Bar --- */
+.loading-bar {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+        var(--vscode-progressBar-background, #89b4fa),
+        #74c7ec,
+        var(--vscode-progressBar-background, #89b4fa));
+    border-radius: 0 0 8px 8px;
+    width: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.loading-bar.active {
+    opacity: 1;
+    animation: loading-progress 1.8s ease-in-out infinite;
+}
+
+@keyframes loading-progress {
+    0%   { width: 0;    left: 0;   }
+    30%  { width: 50%;  left: 0;   }
+    60%  { width: 30%;  left: 50%; }
+    100% { width: 0;    left: 100%; }
+}
+
+/* =========================================================================
+   VIEWPORT (Canvas Area)
+   ========================================================================= */
+.viewport {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: var(--vscode-editor-background, #1e1e2e);
+    cursor: default;
+}
+
+#screencast-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    image-rendering: auto;
+}
+
+#screencast-canvas:focus {
+    outline: none;
+}
+
+/* --- Splash Screen --- */
+.splash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    z-index: 50;
+    background: var(--vscode-editor-background, #1e1e2e);
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.splash.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.splash-logo {
+    font-size: 64px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50%      { transform: scale(1.08); opacity: 1; }
+}
+
+.splash-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--vscode-foreground, #cdd6f4);
+    opacity: 0.7;
+}
+
+.splash-spinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top-color: var(--vscode-progressBar-background, #89b4fa);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- Error Overlay --- */
+.error-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    z-index: 60;
+    background: var(--vscode-editor-background, #1e1e2e);
+    padding: 40px;
+}
+
+.error-overlay .error-icon {
+    font-size: 48px;
+}
+
+.error-overlay .error-text {
+    max-width: 500px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--vscode-errorForeground, #f38ba8);
+    white-space: pre-wrap;
+}
+
+/* =========================================================================
+   STATUS BAR
+   ========================================================================= */
+.statusbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 2px 10px;
+    height: 22px;
+    background: var(--vscode-statusBar-background, #181825);
+    border-top: 1px solid var(--vscode-panel-border, rgba(255,255,255,0.06));
+    font-size: 11px;
+    flex-shrink: 0;
+    z-index: 100;
+}
+
+.status-title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0.6;
+}
+
+.status-info {
+    opacity: 0.5;
+    flex-shrink: 0;
+}
+
+.status-zoom {
+    opacity: 0.5;
+    flex-shrink: 0;
+    font-family: 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+}
+
+.status-fps {
+    opacity: 0.4;
+    flex-shrink: 0;
+    font-family: 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 10px;
+}
+
+/* =========================================================================
+   QUICK BOOKMARKS BAR
+   ========================================================================= */
+.bookmarks-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px;
+    background: var(--vscode-sideBar-background, #11111b);
+    border-bottom: 1px solid var(--vscode-panel-border, rgba(255,255,255,0.06));
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    flex-shrink: 0;
+    z-index: 5;
+    position: relative;
+}
+
+.bookmarks-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.bm-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--vscode-foreground, #cdd6f4);
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    outline: none;
+}
+
+.bm-item:focus, .bm-item:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.bm-item:hover {
+    background: var(--vscode-button-secondaryBackground, rgba(137, 180, 250, 0.2));
+    border-color: var(--vscode-focusBorder, #89b4fa);
+}
+
+.bm-item:active {
+    transform: scale(0.96);
+}
+
+.bm-icon {
+    font-size: 11px;
+}
+
+/* =========================================================================
+   ZOOM CONTROLS & URL CLEAR
+   ========================================================================= */
+.zoom-group {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 1px;
+}
+
+.zoom-btn {
+    width: 24px;
+    height: 24px;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.zoom-btn:focus, .zoom-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.zoom-indicator {
+    background: transparent;
+    border: none;
+    color: var(--vscode-foreground, #cdd6f4);
+    font-size: 10.5px;
+    font-family: 'Cascadia Code', monospace;
+    padding: 0 4px;
+    cursor: pointer;
+    opacity: 0.8;
+    outline: none;
+}
+
+.zoom-indicator:focus, .zoom-indicator:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.zoom-indicator:hover {
+    opacity: 1;
+    color: var(--vscode-focusBorder, #89b4fa);
+}
+
+.url-clear-btn {
+    background: transparent;
+    border: none;
+    color: var(--vscode-foreground, #cdd6f4);
+    opacity: 0.5;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: opacity 0.15s ease;
+}
+
+.url-clear-btn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.url-clear-btn.hidden {
+    display: none;
+}
+
+/* =========================================================================
+   HELP MODAL
+   ========================================================================= */
+.help-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.help-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.help-content {
+    background: var(--vscode-editor-background, #1e1e2e);
+    border: 1px solid var(--vscode-panel-border, rgba(255,255,255,0.12));
+    border-radius: 12px;
+    padding: 20px 24px;
+    width: 440px;
+    max-width: 90%;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+.help-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.help-header h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--vscode-foreground, #cdd6f4);
+}
+
+.help-close {
+    background: transparent;
+    border: none;
+    color: var(--vscode-foreground, #cdd6f4);
+    opacity: 0.6;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.help-close:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.help-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.help-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--vscode-foreground, #cdd6f4);
+}
+
+.help-item kbd {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-family: 'Cascadia Code', monospace;
+    font-size: 11px;
+}
+
+/* =========================================================================
+   ANIMATIONS & EFFECTS
+   ========================================================================= */
+
+/* Button press ripple */
+.nav-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+}
+
+.nav-btn:active::after {
+    opacity: 1;
+    transform: scale(1.2);
+    transition: all 0.05s ease;
+}
+
+/* Smooth toolbar shadow on scroll */
+.toolbar.scrolled {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}

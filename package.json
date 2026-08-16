@@ -1,0 +1,114 @@
+{
+  "name": "vscode-full-browser",
+  "displayName": "Full Browser - Chromium Inside VS Code",
+  "description": "A full Chromium browser inside VS Code. Browse the entire internet without iframe restrictions using real Chrome rendering via CDP screencast.",
+  "version": "1.0.0",
+  "publisher": "studywithgod",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/studywithgod/vscode-full-browser.git"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*",
+    "onCommand:fullBrowser.open",
+    "onCommand:fullBrowser.openUrl"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fullBrowser.open",
+        "title": "Open Full Browser",
+        "category": "Browser",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "fullBrowser.openUrl",
+        "title": "Open URL in Full Browser",
+        "category": "Browser",
+        "icon": "$(link)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "fullBrowser.open",
+          "group": "navigation",
+          "when": "true"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "fullBrowser.open",
+          "when": "true"
+        },
+        {
+          "command": "fullBrowser.openUrl",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Full Browser",
+      "properties": {
+        "fullBrowser.chromePath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to Chrome/Edge/Brave executable. Leave empty for auto-detection."
+        },
+        "fullBrowser.homepage": {
+          "type": "string",
+          "default": "https://www.google.com",
+          "description": "Default homepage URL."
+        },
+        "fullBrowser.quality": {
+          "type": "number",
+          "default": 95,
+          "minimum": 10,
+          "maximum": 100,
+          "description": "Screencast JPEG quality (10-100). Lower = faster, higher = sharper."
+        },
+        "fullBrowser.everyNthFrame": {
+          "type": "number",
+          "default": 1,
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Capture every Nth frame. Higher = less CPU but choppier."
+        },
+        "fullBrowser.profileMode": {
+          "type": "string",
+          "default": "persistent",
+          "enum": ["persistent", "chrome", "temporary"],
+          "enumDescriptions": [
+            "Use extension's own persistent profile (logins saved across sessions)",
+            "Use your real Chrome profile (Chrome must be closed first)",
+            "Fresh temporary profile every time (no saved data)"
+          ],
+          "description": "Which browser profile to use."
+        },
+        "fullBrowser.profileDirectory": {
+          "type": "string",
+          "default": "auto",
+          "description": "Chrome profile directory (e.g. 'Profile 9', 'Default', or 'auto' to use most recent)."
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "puppeteer-core": "^22.0.0"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.22.0",
+    "esbuild": "^0.28.2"
+  },
+  "scripts": {
+    "package": "vsce package --no-dependencies",
+    "install-ext": "code --install-extension vscode-full-browser-1.0.0.vsix"
+  }
+}
