@@ -1,24 +1,28 @@
-## 📝 Description of Changes
-Please include a summary of the changes and the related issue (if any).
+## 📝 Description
+<!-- Briefly describe what this pull request does and the problem it solves. -->
 
-Fixes #(issue number)
+## 🔗 Related Issue
+<!-- Link any related issues, e.g., Closes #123 or Fixes #456 -->
 
-## 🔍 Type of Change
+## 🛠️ Type of Change
 - [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
 - [ ] ✨ New feature (non-breaking change which adds functionality)
 - [ ] ⚡ Performance improvement
-- [ ] 🎨 UI / UX refinement
-- [ ] 📖 Documentation update
+- [ ] 💄 UI / Styling enhancement
+- [ ] 📝 Documentation update
+- [ ] 🧹 Refactoring / Code cleanup
 
-## 🧪 How Has This Been Tested?
-- [ ] Tested locally via F5 (Extension Development Host)
-- [ ] Built and verified with `npm run build`
-- [ ] Tested on Windows / macOS / Linux
+## 🧪 Testing Checklist
+- [ ] I have tested this change locally in VS Code Extension Development Host (`F5`).
+- [ ] `npm run build` bundles without errors.
+- [ ] Video playback / DRM features work as expected (if applicable).
+- [ ] Keyboard shortcuts and mouse events respond correctly.
+- [ ] No regressions introduced to existing browser functionality.
 
-## 📸 Screenshots / Recordings (if applicable)
-Add screenshots or short clips demonstrating the change.
+## 🔒 Security & Privacy Checklist
+- [ ] No API keys, credentials, tokens, or personal paths are included.
+- [ ] No unauthorized external network calls or telemetry added.
+- [ ] All code runs 100% locally on the user's machine.
 
-## ✅ Checklist
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] My changes generate no new warnings or errors
+## 📸 Screenshots / Recordings (Optional)
+<!-- If this PR changes the UI, attach before/after screenshots or a short GIF. -->
