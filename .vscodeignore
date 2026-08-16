@@ -1,5 +1,6 @@
 .vscode-test/
 *.vsix
 node_modules/
+documentation/
 DEVELOPER.md
 extension.js
