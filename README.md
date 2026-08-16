@@ -143,7 +143,7 @@ Search Google, browse MDN, read API documentation, look up Stack Overflow answer
 
 ## ⚙️ Extension Settings
 
-Configure ChromeX Browser via **Settings (`Ctrl+,`) → Extensions → ChromeX Browser**:
+Configure ChromeX Browser (v1.0.7) via **Settings (`Ctrl+,`) → Extensions → ChromeX Browser**:
 
 | Setting | Default | Description |
 |---|---|---|
